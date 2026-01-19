@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Create Student </h1>
+    <hr>
+    <form th:action="@{/students/create}" th:object="${student}" method="post">
+        <label>ID:</label>
+        <input th:field="*{id}" />
+        <span th:errors="*{id}"></span><br />
+
+        <label>Name:</label>
+        <input th:field="*{name}" />
+        <span th:errors="*{name}"></span><br />
+
+        <label>Email:</label>
+        <input th:field="*{email}" />
+        <span th:errors="*{email}"></span><br />
+
+        <label>Phone:</label>
+        <input th:field="*{phone}" />
+        <span th:errors="*{phone}"></span><br />
+
+        <label>Gender:</label>
+        <input type="radio" th:field="*{gender}" value="true" /> Male
+        <input type="radio" th:field="*{gender}" value="false" /> Female
+        <span th:errors="*{gender}"></span><br />
+
+        <label>DOB:</label>
+        <input type="date" th:field="*{dob}" />
+        <span th:errors="*{dob}"></span><br />
+
+        <button type="submit">Save</button>
+    </form>
+
+    <hr>
+    <h3 th:text="${message}"></h3>
+    <h3>Details of student</h3>
+    <ul th:object="${student}">
+        <li>ID: <span th:text="*{id}"></span></li>
+        <li>Name: <span th:text="*{name}"></span></li>
+        <li>Email: <span th:text="*{email}"></span></li>
+        <li>Phone: <span th:text="*{phone}"></span></li>
+        <li>DOB: <span th:text="*{dob}"></span></li>
+        <li>Gender: <span th:text="*{gender ? 'Male' : 'Female'}"></span></li>
+    </ul>
+</body>
+
+</html>
