@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="admin-layout(title, content)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Document</title>
+</head>
+<body>
+    <header>
+        <section>Admin section</section>
+        <nav th:replace="layouts/admin-menu :: admin-menu">Menu</nav>
+    </header>
+    <div th:replace="${content}"></div>
+    <footer>Footer</footer>
+</body>
+</html>
